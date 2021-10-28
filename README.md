@@ -2,19 +2,6 @@
 
 `eshop-mobile-client` is a reference mobile client app whose imagined purpose is to serve the mobile workforce of a fictitious company that sells products. The app allows you to manage the catalog, view products, and manage the basket and the orders.
 
-# Dependencies
-
-Though `eshop-mobile-client` mobile app relies on the repo [eShopOnContainers](https://github.com/dotnet-architecture/eShopOnContainers) for it's backend but by default it uses its internal MockServices for all it's functionalities. For more details refer to the [Setup](https://github.com/dotnet-architecture/eshop-mobile-client#setup) section.
-
-<img src="Images/eShopOnContainers_Architecture.png" alt="eShopOnContainers" Width="800" />
-
-## Architecture
-
-The app architecture consists of two parts:
-
-  1. A Xamarin.Forms mobile app for iOS, Android, and Windows.
-  2. Several .NET Web API microservices deployed as Docker containers.
-
 ### Xamarin.Forms App
 
 This project exercises the following platforms, frameworks or features:
@@ -39,9 +26,7 @@ This project exercises the following platforms, frameworks or features:
   * Entity Framework
   * Identity Server 4
 
-### Backend Services
 
-All the backend services related code and components are maintained as [eShopOnContainers](https://github.com/dotnet-architecture/eShopOnContainers) repo.
 
 ## Supported platforms
 
@@ -102,16 +87,6 @@ But if you want to test out the app using with the real services you can do that
 
 For that you'll need to do the following:
 
-1) Deploy the backend services of `eShop` applications from the [eShopOnContainers](https://github.com/dotnet-architecture/eShopOnContainers) repo. You can deploy the application to either [Local Kubernetes](https://github.com/dotnet-architecture/eShopOnContainers/wiki/Deploy-to-Local-Kubernetes) or [AKS](https://github.com/dotnet-architecture/eShopOnContainers/wiki/Deploy-to-Azure-Kubernetes-Service-(AKS)) environment. 
-   
-2) Enable microservies endpoint in the `Settings` section.
-
-  <img src="Images/mock-service.png" alt="Connect with a Mac" Width="300" />
-
-  <img src="Images/microservices-url.png" alt="Connect with a Mac" Width="300" />
-
-  Identity Url : `http://<YOUR_IP_OR_DNS_NAME>/identity`
-  Mobile Gateway Shopping Url: `http://<YOUR_IP_OR_DNS_NAME>/mobileshoppingapigw`
 
 3) Enable HTTP traffic.
    
@@ -138,25 +113,6 @@ For that you'll need to do the following:
 
 > **NOTE:** Please note, in production scenario you'll the services which uses `HTTPS` endpoint.
 
-## Screens
-
-The app has the following screens:
-
-* a auth screen
-* a login prompt
-* a catalog list
-* a profile section with a order list
-* a readonly order detail screen
-* a customizable basket
-* a checkout screen
-
-<img src="Images/Auth.png" alt="Login" Width="210" />
-<img src="Images/login.png" alt="Login" Width="210" />
-<img src="Images/Catalog.png" alt="Catalog" Width="210" />
-<img src="Images/Filter.png" alt="Filter catalog" Width="210" />
-<img src="Images/Profile.png" alt="Profile" Width="210" />
-<img src="Images/OrderDetail.png" alt="Order details" Width="210" />
-<img src="Images/ShoppingCart.png" alt="Basket" Width="210" />
 
 ## Clean and Rebuild
 
@@ -206,7 +162,7 @@ In the configuration window of the machine, go to the Compatibility section and 
 ## Licenses
 
 This project uses some third-party assets with a license that requires attribution:
-
+* [eShopOnContainers](https://github.com/dotnet-architecture/eShopOnContainers) repo
 * [Xamarin.Plugins](https://github.com/jamesmontemagno/Xamarin.Plugins): by James Montemagno
 * [FFImageLoading](https://github.com/daniel-luberda/FFImageLoading): by Daniel Luberda
 * [ACR User Dialogs](https://github.com/aritchie/userdialogs): by Allan Ritchie
