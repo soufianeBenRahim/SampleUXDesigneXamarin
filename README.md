@@ -1,6 +1,7 @@
-# eshop-mobile-client
+# SampleUXDesigneXamarin
 
-`eshop-mobile-client` is a reference mobile client app whose imagined purpose is to serve the mobile workforce of a fictitious company that sells products. The app allows you to manage the catalog, view products, and manage the basket and the orders.
+forked from `eshop-mobile-client` who is a reference mobile client app whose imagined purpose is to serve the mobile workforce of a fictitious company that sells products. The app allows you to manage the catalog, view products, and manage the basket and the orders.
+the sampleUXDesigneXamarin have un smart navigation with the same  platform of eshop-mobil-client
 
 ### Xamarin.Forms App
 
