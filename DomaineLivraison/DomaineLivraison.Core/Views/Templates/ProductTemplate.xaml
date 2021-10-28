@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<ContentView
+    x:Class="DomaineLivraison.Core.Views.Templates.ProductTemplate"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:controls="clr-namespace:DomaineLivraison.Core.Controls;assembly=DomaineLivraison.Core">
+    <ContentView.Resources>
+        <ResourceDictionary>
+
+            <Style x:Key="ProductNameStyle" TargetType="{x:Type Label}">
+                <Setter Property="FontFamily" Value="{StaticResource MontserratRegular}" />
+                <Setter Property="FontSize" Value="{StaticResource LargeSize}" />
+                <Setter Property="HorizontalOptions" Value="Start" />
+                <Setter Property="Margin" Value="3" />
+            </Style>
+
+            <Style x:Key="ProductPrixVenteStyle" 
+               TargetType="{x:Type Label}">
+                <Setter Property="FontFamily"
+                        Value="{StaticResource MontserratRegular}" />
+                <Setter Property="FontSize" 
+                        Value="{StaticResource LargerSize}" />
+                <Setter Property="TextColor" 
+                        Value="{StaticResource GreenColor}" />
+                <Setter Property="HorizontalOptions" 
+                        Value="End" />
+            </Style>
+            <Style x:Key="ProductPrixAchatStyle" 
+               TargetType="{x:Type Label}">
+                    <Setter Property="FontFamily"
+                        Value="{StaticResource MontserratRegular}" />
+                    <Setter Property="FontSize" 
+                        Value="{StaticResource LargerSize}" />
+                    <Setter Property="TextColor" 
+                        Value="Red" />
+                    <Setter Property="HorizontalOptions" 
+                        Value="End" />
+                </Style>
+            <Style x:Key="ProductQuantityStyle" 
+               TargetType="{x:Type Label}">
+                <Setter Property="FontFamily"
+                        Value="{StaticResource MontserratRegular}" />
+                <Setter Property="FontSize" 
+                        Value="{StaticResource MidMediumSize}" />
+                <Setter Property="HorizontalOptions" 
+                        Value="Start" />
+            </Style>
+
+        </ResourceDictionary>
+    </ContentView.Resources>
+    <ContentView.Content>
+        <Grid Margin="0" Padding="0" 
+              RowDefinitions="Auto,Auto" 
+              ColumnDefinitions="*,Auto">
+            <!--  NAME  -->
+            <Label
+                
+                Style="{StaticResource ProductNameStyle}"
+                Text="{Binding Name, Converter={StaticResource ToUpperConverter}}" />
+            <Label
+                Grid.Row="1"
+                Style="{StaticResource ProductQuantityStyle}"
+                Text="{Binding Quantity, StringFormat='{0:N}'}" />
+            <!--  PRICE  -->
+            <Label
+                Grid.Row="0"
+                Grid.Column="1"
+                Style="{StaticResource ProductPrixVenteStyle}"
+                Text="{Binding Price, StringFormat='{0:N}'}" />
+            <Label
+                Grid.Row="1"
+                Grid.Column="1"
+                Style="{StaticResource ProductPrixAchatStyle}"
+                Text="{Binding Price, StringFormat='{0:N}'}" />
+        </Grid>
+    </ContentView.Content>
+</ContentView>

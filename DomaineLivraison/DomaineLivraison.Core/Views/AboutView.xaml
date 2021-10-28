@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<views:ContentPageBase
+    x:Class="DomaineLivraison.Core.Views.AboutView"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:behaviors="clr-namespace:DomaineLivraison.Core.Behaviors;assembly=DomaineLivraison.Core"
+    xmlns:animations="clr-namespace:DomaineLivraison.Core.Animations;assembly=DomaineLivraison.Core"
+    xmlns:templates="clr-namespace:DomaineLivraison.Core.Views.Templates;assembly=DomaineLivraison.Core"
+    xmlns:triggers="clr-namespace:DomaineLivraison.Core.Triggers;assembly=DomaineLivraison.Core"
+    xmlns:viewModelBase="clr-namespace:DomaineLivraison.Core.ViewModels.Base;assembly=DomaineLivraison.Core"
+    xmlns:viewmodels="clr-namespace:DomaineLivraison.Core.ViewModels"
+    xmlns:views="clr-namespace:DomaineLivraison.Core.Views;assembly=DomaineLivraison.Core"
+    xmlns:xtc="http://xamarin.com/schemas/2020/toolkit"
+    Title="ABOUT"
+    viewModelBase:ViewModelLocator.AutoWireViewModel="true"
+    x:DataType="viewmodels:AboutViewModel">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+
+
+            <Style x:Key="FilterLabelStyle" TargetType="{x:Type Label}">
+                <Setter Property="TextColor" Value="{StaticResource WhiteColor}" />
+                <Setter Property="HorizontalOptions" Value="Center" />
+                <Setter Property="VerticalOptions" Value="Center" />
+            </Style>
+
+            <animations:StoryBoard x:Key="ProductsAnimation" Target="{x:Reference aboutBtn}">
+                <animations:FadeInAnimation
+                    Delay="250"
+                    Direction="Up"
+                    Duration="1500" />
+            </animations:StoryBoard>
+
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    <ContentPage.Triggers>
+        <EventTrigger Event="Appearing">
+            <triggers:BeginAnimation Animation="{StaticResource ProductsAnimation}" />
+        </EventTrigger>
+    </ContentPage.Triggers>
+    <ContentPage.ToolbarItems>
+        <ToolbarItem IconImageSource="{DynamicResource FilterIconForTitleImageSource}" Clicked="OnFilterChanged" />
+    </ContentPage.ToolbarItems>
+    <Button Text="About" x:Name="aboutBtn"></Button>
+   
+</views:ContentPageBase>

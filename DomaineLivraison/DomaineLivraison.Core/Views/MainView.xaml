@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<views:ContentPageBase
+    x:Class="DomaineLivraison.Core.Views.MainView"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:viewModelBase="clr-namespace:DomaineLivraison.Core.ViewModels.Base;assembly=DomaineLivraison.Core"
+    xmlns:viewmodels="clr-namespace:DomaineLivraison.Core.ViewModels"
+    xmlns:views="clr-namespace:DomaineLivraison.Core.Views;assembly=DomaineLivraison.Core"
+    xmlns:animations="clr-namespace:DomaineLivraison.Core.Animations;assembly=DomaineLivraison.Core"
+    xmlns:triggers="clr-namespace:DomaineLivraison.Core.Triggers;assembly=DomaineLivraison.Core"
+    xmlns:xtc="http://xamarin.com/schemas/2020/toolkit"
+    Title="Bureau"
+    viewModelBase:ViewModelLocator.AutoWireViewModel="true"
+    x:DataType="viewmodels:MainViewModel">
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="LOGOUT" Command="{Binding LogoutCommand}" />
+    </ContentPage.ToolbarItems>
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Style x:Key="commandButon" TargetType="{x:Type Frame}">
+                <Setter Property="HasShadow"  Value="True"/>
+                <Setter Property="VerticalOptions" Value="FillAndExpand"/>
+                <Setter Property="HorizontalOptions" Value="FillAndExpand"/>
+                <Setter  Property="Background" Value="#DBD0C0"/>
+                <Setter Property="CornerRadius" Value="20"/>
+            </Style>
+            <Style x:Key="StacklayoutInsideFrame" TargetType="{x:Type StackLayout}">
+                <Setter Property="HorizontalOptions" Value="Center"/>
+                <Setter Property="VerticalOptions" Value="Center"/>
+            </Style>
+            <Style x:Key="labelInsideFrame" TargetType="{x:Type Label}" >
+                <Setter Property="TextColor" Value="Black"/>
+                <Setter Property="HorizontalTextAlignment" Value="Center"/>
+            </Style> 
+            <animations:StoryBoard x:Key="CommandesAnimation" Target="{x:Reference Commandes}">
+                <animations:FadeInAnimation
+                    Delay="250"
+                    Direction="Up"
+                    Duration="2500" />
+            </animations:StoryBoard>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    <ContentPage.Triggers>
+        <EventTrigger Event="Appearing">
+            <triggers:BeginAnimation Animation="{StaticResource CommandesAnimation}" />
+        </EventTrigger>
+    </ContentPage.Triggers>
+
+    <ScrollView>
+        <Grid Padding="15"
+          x:Name="Commandes"
+          RowDefinitions="100,100,100,100"
+          ColumnDefinitions="150,150"
+          VerticalOptions="Center" 
+          HorizontalOptions="Center"
+          ColumnSpacing="10"
+          RowSpacing="10">
+
+
+
+
+
+            <Frame Style="{StaticResource commandButon}"
+               Grid.Column="0"
+               Grid.Row="0">
+                <Frame.GestureRecognizers>
+                    <TapGestureRecognizer 
+                    Command="{Binding VenteCommande}"
+                    NumberOfTapsRequired="1"/>
+                </Frame.GestureRecognizers>
+                <StackLayout Style= "{StaticResource StacklayoutInsideFrame}">
+                    <Image Source="{StaticResource BasketIcon-arrow-downImageSource }" ></Image>
+                    <Label  Style="{StaticResource labelInsideFrame}">Achat</Label>
+                </StackLayout>
+
+            </Frame>
+            <Frame Style="{StaticResource commandButon}"
+               Grid.Column="1"
+               Grid.Row="0"
+               >
+                <Frame.GestureRecognizers>
+                    <TapGestureRecognizer 
+                    Command="{Binding VenteCommande}"
+                    NumberOfTapsRequired="1"/>
+                </Frame.GestureRecognizers>
+                <StackLayout Style="{StaticResource StacklayoutInsideFrame}">
+                    <Image Source="{StaticResource CatalogIconImageSource }" ></Image>
+                    <Label Style="{StaticResource labelInsideFrame}">vente</Label>
+                </StackLayout>
+
+            </Frame>
+
+            <Frame Style="{StaticResource commandButon}"
+               Grid.Column="0"
+               Grid.Row="1">
+                <Frame.GestureRecognizers>
+                    <TapGestureRecognizer 
+                    Command="{Binding VenteCommande}"
+                    NumberOfTapsRequired="1"/>
+                </Frame.GestureRecognizers>
+                <StackLayout Style= "{StaticResource StacklayoutInsideFrame}">
+                    <StackLayout Orientation="Horizontal">
+                        <Image Source="{StaticResource monyImage }" ></Image>
+                        <Image Source="{StaticResource OutIconImageSource }" ></Image>
+                    </StackLayout>
+                    <Label Style="{StaticResource labelInsideFrame}">Décaissment</Label>
+                </StackLayout>
+
+            </Frame>
+            <Frame Style="{StaticResource commandButon}"
+               Grid.Column="1"
+               Grid.Row="1">
+                <Frame.GestureRecognizers>
+                    <TapGestureRecognizer 
+                    Command="{Binding VenteCommande}"
+                    NumberOfTapsRequired="1"/>
+                </Frame.GestureRecognizers>
+                <StackLayout Style= "{StaticResource StacklayoutInsideFrame}">
+                    <StackLayout Orientation="Horizontal">
+                        <Image Source="{StaticResource InIconImageSource }" ></Image>
+                        <Image Source="{StaticResource monyImage }" ></Image>
+                    </StackLayout>
+
+                    <Label Style="{StaticResource labelInsideFrame}">Encaissment</Label>
+                </StackLayout>
+
+            </Frame>
+
+
+            <Frame Style="{StaticResource commandButon}"
+               Grid.Column="0"
+               Grid.Row="2"
+               >
+                <Frame.GestureRecognizers>
+                    <TapGestureRecognizer 
+                    Command="{Binding VenteCommande}"
+                    NumberOfTapsRequired="1"/>
+                </Frame.GestureRecognizers>
+                <StackLayout Style= "{StaticResource StacklayoutInsideFrame}">
+                    <Image Source="{StaticResource StatistiqueImage }" ></Image>
+                    <Label Style="{StaticResource labelInsideFrame}">statistique Achat</Label>
+                </StackLayout>
+
+            </Frame>
+            <Frame Style="{StaticResource commandButon}"
+               Grid.Column="1"
+               Grid.Row="2">
+                <Frame.GestureRecognizers>
+                    <TapGestureRecognizer 
+                    Command="{Binding VenteCommande}"
+                    NumberOfTapsRequired="1"/>
+                </Frame.GestureRecognizers>
+                <StackLayout Style= "{StaticResource StacklayoutInsideFrame}">
+                    <Image Source="{StaticResource StatistiqueImage }" ></Image>
+                    <Label Style="{StaticResource labelInsideFrame}">statistique Vente</Label>
+                </StackLayout>
+
+            </Frame>
+
+            <Frame Style="{StaticResource commandButon}"
+               Grid.Column="0"
+               Grid.Row="3"
+               Grid.ColumnSpan="2"
+               >
+                <Frame.GestureRecognizers>
+                    <TapGestureRecognizer 
+                    Command="{Binding VenteCommande}"
+                    NumberOfTapsRequired="1"/>
+                </Frame.GestureRecognizers>
+                <StackLayout Style="{StaticResource StacklayoutInsideFrame}">
+                    <Image Source="{StaticResource ProfileIconImageSource }" ></Image>
+                    <Label Style="{StaticResource labelInsideFrame}" >Administration</Label>
+                </StackLayout>
+            </Frame>
+        </Grid>
+
+    </ScrollView>
+    
+
+</views:ContentPageBase>

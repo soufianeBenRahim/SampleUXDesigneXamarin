@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<views:ContentPageBase
+    x:Class="DomaineLivraison.Core.Views.ProfileView"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:templates="clr-namespace:DomaineLivraison.Core.Views.Templates;assembly=DomaineLivraison.Core"
+    xmlns:viewModelBase="clr-namespace:DomaineLivraison.Core.ViewModels.Base;assembly=DomaineLivraison.Core"
+    xmlns:viewmodels="clr-namespace:DomaineLivraison.Core.ViewModels"
+    xmlns:views="clr-namespace:DomaineLivraison.Core.Views;assembly=DomaineLivraison.Core"
+    xmlns:xct="http://xamarin.com/schemas/2020/toolkit"
+    Title="MY PROFILE"
+    viewModelBase:ViewModelLocator.AutoWireViewModel="true"
+    x:DataType="viewmodels:ProfileViewModel">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+
+            <Style x:Key="LoginButtonStyle" TargetType="{x:Type Label}">
+                <Setter Property="FontFamily" Value="{StaticResource MontserratRegular}" />
+                <Setter Property="TextColor" Value="{StaticResource WhiteColor}" />
+                <Setter Property="HorizontalOptions" Value="Center" />
+                <Setter Property="VerticalOptions" Value="Center" />
+            </Style>
+
+            <Style x:Key="MyOrdersLabelStyle" TargetType="{x:Type Label}">
+                <Setter Property="FontFamily" Value="{StaticResource MontserratRegular}" />
+                <Setter Property="FontSize" Value="{StaticResource MediumSize}" />
+                <Setter Property="HorizontalTextAlignment" Value="Center" />
+                <Setter Property="VerticalTextAlignment" Value="Center" />
+                <Setter Property="Margin" Value="0,12" />
+            </Style>
+
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="LOGOUT" Command="{Binding LogoutCommand}" />
+    </ContentPage.ToolbarItems>
+
+    <!--  ORDERS  -->
+    <Grid>
+        <Grid IsVisible="{Binding IsBusy, Converter={StaticResource InverseBoolConverter}}">
+            <Label
+                HorizontalOptions="Center"
+                IsVisible="{Binding Orders, Converter={StaticResource ListIsNullOrEmptyConverter}}"
+                Text="NO ORDERS"
+                VerticalOptions="Center" />
+        </Grid>
+
+    </Grid>
+</views:ContentPageBase>
