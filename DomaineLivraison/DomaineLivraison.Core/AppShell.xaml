@@ -44,7 +44,10 @@
     <Shell.FlyoutHeader>
         <controls:FlyoutHeader />
     </Shell.FlyoutHeader>
-    <FlyoutItem FlyoutDisplayOptions="AsMultipleItems">
+    <FlyoutItem Shell.FlyoutItemIsVisible="False" >
+        <ShellContent Shell.FlyoutItemIsVisible="False" ContentTemplate="{DataTemplate views:LoginView}" Route="Login" />
+    </FlyoutItem>
+    <FlyoutItem FlyoutDisplayOptions="AsMultipleItems" Route="MainStock">
         <ShellContent Shell.FlyoutItemIsVisible="False" Title="BUREAU" Route="bureau" Icon="{StaticResource HomeIconImageSource}" ContentTemplate="{DataTemplate views:MainView}" />
 
         <ShellContent Title="VENTE" Route="vente" Icon="{StaticResource VenteIconImageSource}" ContentTemplate="{DataTemplate views:VenteView}" />
@@ -53,7 +56,7 @@
         <ShellContent Title="ACHET" Route="achat" Icon="{StaticResource BasketIcon-arrow-downImageSource}" ContentTemplate="{DataTemplate views:AchatView}" />
 
     </FlyoutItem>
-    <FlyoutItem FlyoutDisplayOptions="AsMultipleItems" >
+    <FlyoutItem FlyoutDisplayOptions="AsMultipleItems" Route="MainMony">
         <ShellContent Shell.FlyoutItemIsVisible="False" Title="BUREAU" Route="bureau" Icon="{StaticResource HomeIconImageSource}" ContentTemplate="{DataTemplate views:MainView}" />
         <ShellContent Title="CLIENT" Route="cleint" Icon="{StaticResource ProfileIconImageSource}" ContentTemplate="{DataTemplate views:ProfileView}" />
         <ShellContent Title="FOURNISSUER" Route="fournissuer" Icon="{StaticResource ProfileIconImageSource}" ContentTemplate="{DataTemplate views:ProfileView}" /> 
@@ -61,12 +64,15 @@
         <ShellContent Title="DECAISSE" Route="decaisse" Icon="{StaticResource OutIconImageSource}" ContentTemplate="{DataTemplate views:ProfileView}" />
 
     </FlyoutItem>
-    <FlyoutItem FlyoutDisplayOptions="AsMultipleItems" >
+    <FlyoutItem FlyoutDisplayOptions="AsMultipleItems" Route="MainAdmin">
         <ShellContent Shell.FlyoutItemIsVisible="False" Title="BUREAU" Route="bureau" Icon="{StaticResource HomeIconImageSource}" ContentTemplate="{DataTemplate views:MainView}" />
-        <ShellContent Title="A propot" Route="apropot" Icon="{StaticResource info-circleImageSource}" ContentTemplate="{DataTemplate views:AboutView}" />
+        <ShellContent Title="A PROPOT" Route="apropot" Icon="{StaticResource info-circleImageSource}" ContentTemplate="{DataTemplate views:AboutView}" />
         <ShellContent Title="UTILISATEUR" Route="utilisateur" Icon="{StaticResource ProfileIconImageSource}" ContentTemplate="{DataTemplate views:UtilisateurView}" />
         <ShellContent Title="PRIVILEGES" Route="privileges" Icon="{StaticResource user-lockImage}" ContentTemplate="{DataTemplate views:PrivilegesView}" />
         <ShellContent Title="Synchronisation" Route="synchroniser" Icon="{StaticResource sync-altImageSource}" ContentTemplate="{DataTemplate views:ProfileView}" />
+    </FlyoutItem>
+    <FlyoutItem >
+        <ShellContent Title="Déconnexion" Route="deconnexion" Icon="{StaticResource HomeIconImageSource}" ContentTemplate="{DataTemplate views:LoginView}" />
     </FlyoutItem>
     <Shell.FlyoutFooter>
         <controls:FlyoutFooter/>

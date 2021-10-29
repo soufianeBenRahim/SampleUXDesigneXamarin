@@ -155,8 +155,7 @@ namespace DomaineLivraison.Core.ViewModels
             if (isAuthenticated)
             {
                 _settingsService.AuthAccessToken = GlobalSetting.Instance.AuthToken;
-
-                await NavigationService.NavigateToAsync ("bureau");
+                await NavigationService.NavigateToAsync ("//MainStock/bureau");
             }
 
             IsBusy = false;

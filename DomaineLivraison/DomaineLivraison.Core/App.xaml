@@ -122,8 +122,9 @@
             <x:String x:Key="StockIcon">&#xf1b3;</x:String>
             <x:String x:Key="info-circle">&#xf05a;</x:String>
             <x:String x:Key="user-lock">&#xf502;</x:String>
-            
             <x:String x:Key="sync-alt">&#xf2f1;</x:String>
+            <x:String x:Key="truck-loadingIcon">&#xf4de;</x:String>
+            
             <FontImageSource
                 x:Key="sync-altImageSource"
                 FontFamily="{StaticResource FontAwesomeSolid}"
@@ -264,7 +265,13 @@
                 FontFamily="{StaticResource FontAwesomeSolid}"
                 Glyph="{StaticResource mony}" 
                 Color="{StaticResource LightForegroundColor}"/>
-
+            <FontImageSource
+                x:Key="truck-loadingImage"
+                FontFamily="{StaticResource FontAwesomeSolid}"
+                Glyph="{StaticResource truck-loadingIcon}" 
+                Color="{StaticResource LightGreenColor}"
+                Size="72"/>
+            
             <FontImageSource
                 x:Key="user-lockImage"
                 FontFamily="{StaticResource FontAwesomeSolid}"
