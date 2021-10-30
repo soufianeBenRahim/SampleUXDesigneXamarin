@@ -1,10 +1,4 @@
-﻿using DomaineLivraison.Core.Models.Basket;
-using DomaineLivraison.Core.Models.Catalog;
-
-using DomaineLivraison.Core.Services.Catalog;
-using DomaineLivraison.Core.Services.Settings;
-using DomaineLivraison.Core.Services.User;
-using DomaineLivraison.Core.ViewModels.Base;
+﻿using DomaineLivraison.Core.ViewModels.Base;
 using DomaineLivraison.Services;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;

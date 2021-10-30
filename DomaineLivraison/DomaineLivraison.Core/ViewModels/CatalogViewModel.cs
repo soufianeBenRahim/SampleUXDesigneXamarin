@@ -1,5 +1,4 @@
-﻿using DomaineLivraison.Core.Models.Basket;
-using DomaineLivraison.Core.Models.Catalog;
+﻿using DomaineLivraison.Core.Models.Catalog;
 
 using DomaineLivraison.Core.Services.Catalog;
 using DomaineLivraison.Core.Services.Settings;
