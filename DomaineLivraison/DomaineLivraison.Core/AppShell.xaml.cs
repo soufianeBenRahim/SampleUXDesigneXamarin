@@ -25,9 +25,6 @@ namespace DomaineLivraison.Core
         private void InitializeRouting()
         {
             Routing.RegisterRoute ("Settings", typeof (SettingsView));
-            Routing.RegisterRoute("bureau", typeof(MainView));
-            Routing.RegisterRoute("Profile", typeof(ProfileView));
-
         }
 
 
